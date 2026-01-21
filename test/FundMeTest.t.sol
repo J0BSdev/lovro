@@ -3,6 +3,7 @@ pragma solidity ^0.8.18;
 
 import {Test, console} from "forge-std/Test.sol";
 import {FundMe} from "../src/FundMe.sol";
+import {DeployFundMe} from "../script/deploy/script/DeployFundMe.s.sol";
 //is Test nasljeduje is test iz forge-std/Test.sol
 contract FundMeTest is Test {
     FundMe fundMe;
