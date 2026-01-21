@@ -16,11 +16,13 @@ contract FundMeTest is Test {
        assertEq(fundMe.MINIMUM_USD(), 5e18);
      }
      function testOwnerIsMsgSender() public view{
-        assertEq(fundMe.i_owner(), address(msg.sender));
+        assertEq(fundMe.i_owner(), address(this));
      }
-
-     function testPriceFeedVersionIsAccurate() public view{
-        uint256 version=fundMe.getVersion();
+     
+     function testPriceFeedVersionIsAccurate() public {
+        vm.createSelectFork(vm.envString("SEPOLIA_RPC"));
+        FundMe fundMeOnFork = new FundMe();
+        uint256 version = fundMeOnFork.getVersion();
         assertEq(version, 4);
      }
 }
