@@ -1,18 +1,18 @@
 
 // SPDX-License-Identifier: MIT
 
-pragma solidity 0.8.19;
+pragma solidity ^0.8.18;
 
-import {DeployFundMe} from "../../script/DeployFundMe.s.sol";
-import {FundMe} from "../../src/FundMe.sol";
-import {HelperConfig, CodeConstants} from "../../script/HelperConfig.s.sol";
+import {DeployFundMe} from "../script/deploy/script/DeployFundMe.s.sol";
+import {FundMe} from "../src/FundMe.sol";
+import {HelperConfig, CodeConstants} from "../script/deploy/script/Helperconfig.s.sol";
 import {Test, console} from "forge-std/Test.sol";
 import {StdCheats} from "forge-std/StdCheats.sol";
 import {ZkSyncChainChecker} from "lib/foundry-devops/src/ZkSyncChainChecker.sol";
-import {MockV3Aggregator} from "../mock/MockV3Aggregator.sol";
+import {MockV3Aggregator} from "./mocks/MockV3Agreggator.sol";
 
 contract FundMeTest is ZkSyncChainChecker, CodeConstants, StdCheats, Test {
-    FundMe public fundMe;
+
     HelperConfig public helperConfig;
 
     uint256 public constant SEND_VALUE = 0.1 ether; // just a value to make sure we are sending enough!

@@ -11,7 +11,7 @@ contract DeployFundMe is Script {
         address priceFeed = helperConfig.getConfigByChainId(block.chainid).priceFeed;
 
         vm.startBroadcast();
-        FundMe fundMe = new FundMe(priceFeed);
+        FundMe fundMe = new FundMe();  
         vm.stopBroadcast();
         return (fundMe, helperConfig);
     }
