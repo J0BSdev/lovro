@@ -2,11 +2,11 @@
 pragma solidity ^0.8.19;
 
 import {Script} from "forge-std/Script.sol";
-import {HelperConfig} from "./HelperConfig.s.sol";  
+import {HelperConfig} from "./Helperconfig.s.sol";
 import {FundMe} from "../../../src/FundMe.sol";
 
 contract DeployFundMe is Script {
-    function deployFundMe() public returns (FundMe, HelperConfig) {
+    function deployFundMe() public returns (FundMe fundMe, HelperConfig helperConfig) {
         HelperConfig helperConfig = new HelperConfig(); // This comes with our mocks!
         address priceFeed = helperConfig.getConfigByChainId(block.chainid).priceFeed;
 
