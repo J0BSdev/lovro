@@ -30,6 +30,8 @@ contract FundMeTest is ZkSyncChainChecker, CodeConstants, StdCheats, Test {
 
     function setUp() external {
         if (!isZkSyncChain()) {
+            // Fork Sepolia to get Chainlink price feed
+            vm.createSelectFork(vm.envString("SEPOLIA_RPC")); // This is the RPC URL for Sepolia
             helperConfig = new HelperConfig();
             // Deploy FundMe directly so test contract is the owner
             fundMe = new FundMe();
