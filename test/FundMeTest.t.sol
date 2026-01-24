@@ -31,9 +31,8 @@ contract FundMeTest is ZkSyncChainChecker, CodeConstants, StdCheats, Test {
     function setUp() external {
         if (!isZkSyncChain()) {
             DeployFundMe deployer = new DeployFundMe();
-            (fundMe, helperConfig) = deployer.deployFundMe();
+            (fundMe,helperConfig) = deployer.deployFundMe();
         } else {
-            MockV3Aggregator mockPriceFeed = new MockV3Aggregator(DECIMALS, INITIAL_PRICE);
             fundMe = new FundMe();
             // Note: Current FundMe doesn't accept price feed in constructor
         }
