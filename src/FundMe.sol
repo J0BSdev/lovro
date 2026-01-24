@@ -44,7 +44,7 @@ contract FundMe {
             address funder = funders[funderIndex];
             addressToAmountFunded[funder] = 0;
         }
-        funders = new address[](0);
+        funders = new address[](0);//@audit-info: this is a potential reentrancy attack 
         // // transfer
         // payable(msg.sender).transfer(address(this).balance);
 

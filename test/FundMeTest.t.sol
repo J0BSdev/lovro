@@ -30,8 +30,9 @@ contract FundMeTest is ZkSyncChainChecker, CodeConstants, StdCheats, Test {
 
     function setUp() external {
         if (!isZkSyncChain()) {
-            DeployFundMe deployer = new DeployFundMe();
-            (fundMe,helperConfig) = deployer.deployFundMe();
+            helperConfig = new HelperConfig();
+            // Deploy FundMe directly so test contract is the owner
+            fundMe = new FundMe();
         } else {
             fundMe = new FundMe();
             // Note: Current FundMe doesn't accept price feed in constructor
@@ -79,7 +80,7 @@ contract FundMeTest is ZkSyncChainChecker, CodeConstants, StdCheats, Test {
 
     function testOnlyOwnerCanWithdraw() public funded skipZkSync {
         vm.expectRevert();
-        vm.prank(address(3)); // Not the owner
+        vm.prank(address(0)); // Not the owner
         fundMe.withdraw();
     }
 
@@ -137,4 +138,7 @@ contract FundMeTest is ZkSyncChainChecker, CodeConstants, StdCheats, Test {
 
         assert(expectedTotalValueWithdrawn == totalValueWithdrawn);
     }
+
+    // Allow test contract to receive ETH from withdraw()
+    receive() external payable {}
 }
