@@ -1,1 +1,1 @@
-testPriceFeedVersionIsAccurate
+testOnlyOwnerCanWithdraw|testWithdrawFromASingleFunder|testWithdrawFromMultipleFunders

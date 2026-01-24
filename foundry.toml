@@ -5,7 +5,6 @@ libs = ["lib"]
 remappings = [
     "forge-std/=lib/forge-std/src/",
     "@chainlink/=lib/chainlink-brownie-contracts/",
-    "lib/foundry-devops/=lib/foundry-devops/src/",
-    "ffi= true"
-
+    "foundry-devops/=lib/foundry-devops/src/",
+    "chainlink-brownie-contracts/=lib/chainlink-brownie-contracts/"
 ]
