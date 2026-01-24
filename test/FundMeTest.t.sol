@@ -8,7 +8,7 @@ import {FundMe} from "../src/FundMe.sol";
 import {HelperConfig, CodeConstants} from "../script/deploy/script/Helperconfig.s.sol";
 import {Test, console} from "forge-std/Test.sol";
 import {StdCheats} from "forge-std/StdCheats.sol";
-import {ZkSyncChainChecker} from "lib/foundry-devops/src/ZkSyncChainChecker.sol";
+import {ZkSyncChainChecker} from "../lib/foundry-devops/src/ZkSyncChainChecker.sol";
 import {MockV3Aggregator} from "../test/mocks/MockV3Agreggator.sol";
 
 contract FundMeTest is ZkSyncChainChecker, CodeConstants, StdCheats, Test {

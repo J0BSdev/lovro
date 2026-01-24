@@ -7,5 +7,11 @@
   },
   "lib/forge-std": {
     "rev": "887e87251562513a7b5ab1ea517c039fe6ee0984"
+  },
+  "lib/foundry-devops": {
+    "tag": {
+      "name": "0.4.0",
+      "rev": "efff097a87e70c3d15661c9f2a2daeae0b33d5d5"
+    }
   }
 }
